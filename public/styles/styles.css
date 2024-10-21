@@ -144,3 +144,79 @@ tr:hover {
         font-size: 2em;
     }
 }
+
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Upload box styling */
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form styling */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Form elements */
+input[type="file"], input[type="number"], select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Label styling */
+label {
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    width: 100%;
+}
+
+/* Button styling */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result box */
+.result {
+    margin-top: 20px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    input[type="file"], input[type="number"], select, button {
+        width: 100%;
+    }
+}
+

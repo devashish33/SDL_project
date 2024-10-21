@@ -35,7 +35,8 @@ app.get("/", (req, res) =>{
 app.post("/api/upload", upload.single("file"), async (req, res) => {
     const file = req.file;
     const passMarks = parseInt(req.body.passingMarks);
-    console.log(passMarks)
+    const serviceType = req.body.serviceType;
+    console.log("passing marks:"+passMarks)
     if (!file) {
         return res.status(400).json({ error: "No file uploaded" });
     }
@@ -64,8 +65,8 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
                 const result = arrangeTable(extractedText, passMarks);
                 console.log(result);
                 //res.json(result);
-                res.render("failed.ejs", {failedStudents: result.failedStudents})
-
+                if(serviceType == "failed") res.render("failed.ejs", {failedStudents: result.failedStudents})
+                else res.render("failed.ejs", {failedStudents: result.tableData})
             })
             .catch((error) => {
                 console.log(error);
@@ -118,7 +119,6 @@ function arrangeTable(tableText, passingMarks) {
   
       // Add the row to the table data array
       tableData.push(row);
-  
       // Check if the student has failed (marks below passing threshold)
       if (marksAsNumber < passingMarks) {
         failedStudents.push(row);
@@ -127,6 +127,6 @@ function arrangeTable(tableText, passingMarks) {
   
     // Return the arranged table data and failed students list
     return {
-      failedStudents
+      tableData,failedStudents
     };
   }

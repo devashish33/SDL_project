@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Image Upload</title>
+    <title>Marks</title>
     <link rel="stylesheet" href="/styles/styles.css">
 </head>
 <body>
@@ -13,8 +13,16 @@
             <h2>Upload File</h2>
             <form id="uploadForm" action="/api/upload" method="POST" enctype="multipart/form-data">
                 <input type="file" name="file" id="fileInput" accept="image/*,.pdf" required />
+                
                 <label for="passingMarks">Passing Marks:</label>
-                <input type="number" name="passingMarks">
+                <input type="number" name="passingMarks" required>
+
+                <label for="serviceType">Choose Service:</label>
+                <select name="serviceType" id="serviceType" required>
+                    <option value="failed">Show Failed Students</option>
+                    <option value="all">Show All Students</option>
+                </select>
+
                 <button type="submit" id="uploadBtn">Submit</button>
             </form>
             <div id="result" class="result"></div>
